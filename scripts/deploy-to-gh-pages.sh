@@ -6,9 +6,9 @@ set -e
 echo "Pull request: ${TRAVIS_PULL_REQUEST}"
 echo "Parameter: ${1}"
 
-if [[ ${TRAVIS_PULL_REQUEST} = "false"]]
+if [[ "${TRAVIS_PULL_REQUEST}" = "false"]]
 then
-  if [[ ${1} = "master" || ${1} = "develop" ]]
+  if [[ ${1} = "master"]] ||  [[ ${1} = "develop" ]]
   then
     # Define repository relative GitHub address.
     repositoryRelativeGitHubAddress="temporarilyorganization/temp-repository"
