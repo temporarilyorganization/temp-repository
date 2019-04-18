@@ -8,6 +8,7 @@ script:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script: bash scripts/deploy-to-gh-pages.sh $TRAVIS_BRANCH
   on:
     all_branches: true
