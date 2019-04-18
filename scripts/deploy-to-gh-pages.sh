@@ -38,19 +38,18 @@ then
     cd "${TRAVIS_BRANCH}"
     ls -l
     cd ..
+    
+    # Configure git.
+    git config user.name "ehaberev"
+    git config user.email "ekhaberev@ics.perm.ru"
+
+    echo "Commit & push changes."
+    git add --all
+    git commit -m "Update gh-pages for ${TRAVIS_BRANCH} branch"
+
+    # Redirect any output to /dev/null to hide any sensitive credential data that might otherwise be exposed.
+    git push --force --quiet "https://${GH_TOKEN}@github.com/${repositoryRelativeGitHubAddress}.git" > /dev/null 2>&1
   fi
 fi
-
-
-# Configure git.
-#git config user.name "Flexberry-man"
-#git config user.email "mail@flexberry.net"
-
-#echo "Commit & push changes."
-#git add --all
-#git commit -m "Update gh-pages for ${TRAVIS_BRANCH} branch"
-
-# Redirect any output to /dev/null to hide any sensitive credential data that might otherwise be exposed.
-#git push --force --quiet "https://${GH_TOKEN}@github.com/${repositoryRelativeGitHubAddress}.git" > /dev/null 2>&1
 
 echo "Deploy to gh-pages finished."
