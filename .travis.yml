@@ -5,3 +5,9 @@ node_js:
 
 script:
   - npm run lint
+
+deploy:
+  provider: script
+  script: bash scripts/deploy-to-gh-pages.sh $TRAVIS_BRANCH
+  on:
+    all_branches: true
